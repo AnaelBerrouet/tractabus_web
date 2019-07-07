@@ -1,7 +1,7 @@
 <table data-toggle="table" class="table table-borderless table-striped">
   <thead>
     <tr>
-      <th data-sortable="true" data-field="title">Title</th>
+      <th data-sortable="true" data-field="title">Article</th>
       <th data-sortable="true" data-field="pagerank">Philosophy Link Score</th>
       <th data-sortable="true" data-field="readability">Readability Level</th>
       <th data-sortable="true" data-field="word_count">Word count</th>

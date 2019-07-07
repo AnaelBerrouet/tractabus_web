@@ -20,8 +20,8 @@
             <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
           </ul>
         </nav>
-        <a href="/" class="phx-logo">
-          <img src="<%= Routes.static_path(@conn, "/images/tractabus.png") %>" height="100px" alt="Tractabus Logo"/>
+        <a href="/">
+          <img src="<%= Routes.static_path(@conn, "/images/tractabus_large.png") %>" height="120px" alt="Tractabus Logo"/>
         </a>
       </section>
     </header>
