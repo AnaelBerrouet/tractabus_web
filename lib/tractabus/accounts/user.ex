@@ -2,6 +2,8 @@ defmodule Tractabus.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @primary_key {:id, :binary_id, autogenerate: true}
+
   schema "users" do
     field :email, :string
     field :name, :string
@@ -24,6 +26,7 @@ defmodule Tractabus.Accounts.User do
     case changeset do
       %Ecto.Changeset{valid?: true, changes: %{password: password}} ->
         put_change(changeset, :password_hash, Argon2.hash_pwd_salt(password))
+
       _ ->
         changeset
     end

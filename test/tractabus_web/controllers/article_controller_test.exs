@@ -4,7 +4,12 @@ defmodule TractabusWeb.ArticleControllerTest do
   alias Tractabus.Articles
 
   @create_attrs %{pagerank: 120.5, readability: 120.5, title: "some title", word_count: 42}
-  @update_attrs %{pagerank: 456.7, readability: 456.7, title: "some updated title", word_count: 43}
+  @update_attrs %{
+    pagerank: 456.7,
+    readability: 456.7,
+    title: "some updated title",
+    word_count: 43
+  }
   @invalid_attrs %{pagerank: nil, readability: nil, title: nil, word_count: nil}
 
   def fixture(:article) do
@@ -75,6 +80,7 @@ defmodule TractabusWeb.ArticleControllerTest do
     test "deletes chosen article", %{conn: conn, article: article} do
       conn = delete(conn, Routes.article_path(conn, :delete, article))
       assert redirected_to(conn) == Routes.article_path(conn, :index)
+
       assert_error_sent 404, fn ->
         get(conn, Routes.article_path(conn, :show, article))
       end

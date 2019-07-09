@@ -4,7 +4,11 @@ defmodule TractabusWeb.UserControllerTest do
   alias Tractabus.Accounts
 
   @create_attrs %{email: "some email", name: "some name", password: "some password"}
-  @update_attrs %{email: "some updated email", name: "some updated name", password: "some updated password"}
+  @update_attrs %{
+    email: "some updated email",
+    name: "some updated name",
+    password: "some updated password"
+  }
   @invalid_attrs %{email: nil, name: nil, password: nil}
 
   def fixture(:user) do
@@ -75,6 +79,7 @@ defmodule TractabusWeb.UserControllerTest do
     test "deletes chosen user", %{conn: conn, user: user} do
       conn = delete(conn, Routes.user_path(conn, :delete, user))
       assert redirected_to(conn) == Routes.user_path(conn, :index)
+
       assert_error_sent 404, fn ->
         get(conn, Routes.user_path(conn, :show, user))
       end

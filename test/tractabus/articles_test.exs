@@ -7,7 +7,12 @@ defmodule Tractabus.ArticlesTest do
     alias Tractabus.Articles.Article
 
     @valid_attrs %{pagerank: 120.5, readability: 120.5, title: "some title", word_count: 42}
-    @update_attrs %{pagerank: 456.7, readability: 456.7, title: "some updated title", word_count: 43}
+    @update_attrs %{
+      pagerank: 456.7,
+      readability: 456.7,
+      title: "some updated title",
+      word_count: 43
+    }
     @invalid_attrs %{pagerank: nil, readability: nil, title: nil, word_count: nil}
 
     def article_fixture(attrs \\ %{}) do
