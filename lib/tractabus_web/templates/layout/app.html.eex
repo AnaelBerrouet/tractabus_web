@@ -16,9 +16,25 @@
     <header>
       <section class="container">
         <nav role="navigation">
-          <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
+        <%= if(@conn.assigns[:current_user]) do %>
+          <ul class="nav nav-pills">
+            <li>
+              <%= link @conn.assigns.current_user.name, to: Routes.user_path(@conn, :show, @conn.assigns.current_user) %>
+            </li>
+            <li>
+              <%= link "logout", to: Routes.session_path(@conn, :delete), method: :delete %>
+            </li>
           </ul>
+        <% else %>
+          <ul class="nav nav-pills">
+            <li>
+              <%= link "Register", to: Routes.user_path(@conn, :new) %>
+            </li>
+            <li>
+              <%= link "Sign in", to: Routes.session_path(@conn, :new) %>
+            </li>
+          </ul>
+        <% end %>
         </nav>
         <a href="/">
           <img src="<%= Routes.static_path(@conn, "/images/tractabus_large.png") %>" height="120px" alt="Tractabus Logo"/>

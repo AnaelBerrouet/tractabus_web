@@ -5,8 +5,10 @@ defmodule TractabusWeb.ArticleView do
     cond do
       score < 9 ->
         '<span class="badge badge-pill badge-primary">Primary</span>'
+
       score >= 9 && score < 13 ->
         '<span class="badge badge-pill badge-warning">Secondary</span>'
+
       true ->
         "<span class='badge badge-pill badge-success'>University</span>"
     end

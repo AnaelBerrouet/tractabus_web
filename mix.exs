@@ -44,7 +44,7 @@ defmodule Tractabus.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:argon2_elixir, ">=2.0.5"},
-      # {:guardian, "~> 0.10.0"}
+      {:joken, "~> 2.0-rc0"}
     ]
   end
 

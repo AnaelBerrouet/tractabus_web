@@ -27,4 +27,4 @@
   </tbody>
 </table>
 
-<span><%= link "New Article", to: Routes.article_path(@conn, :new) %></span>
+<%# <span><%= link "New Article", to: Routes.article_path(@conn, :new) </span> %>

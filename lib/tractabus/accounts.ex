@@ -38,6 +38,22 @@ defmodule Tractabus.Accounts do
   def get_user!(id), do: Repo.get!(User, id)
 
   @doc """
+  Gets a single user based on sepecific key.
+
+  Raises `Ecto.NoResultsError` if the User does not exist.
+
+  ## Examples
+
+      iex> get_user_by([email: user_email])
+      %User{}
+
+      iex> get_user_by([email: not_user_email])
+      nil
+
+  """
+  def get_user_by(keyword_list), do: Repo.get_by(User, keyword_list)
+
+  @doc """
   Creates a user.
 
   ## Examples
@@ -100,5 +116,11 @@ defmodule Tractabus.Accounts do
   """
   def change_user(%User{} = user) do
     User.changeset(user, %{})
+  end
+
+  def validate_user(email, password) do
+    with %User{} = user <- get_user_by(email: email) do
+      Argon2.check_pass(user, password)
+    end
   end
 end
