@@ -1,0 +1,11 @@
+version: "3"
+services:
+  db:
+    image: "postgres:11"
+    container_name: "tractabus_postgres"
+    ports:
+      - "5432:5432"
+    volumes:
+      - tractabus_dbdata:/var/lib/postgresql/data
+volumes:
+  tractabus_dbdata:

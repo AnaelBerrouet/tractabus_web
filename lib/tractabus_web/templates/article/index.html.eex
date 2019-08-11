@@ -1,0 +1,30 @@
+<table data-toggle="table" class="table table-borderless table-striped">
+  <thead>
+    <tr>
+      <th data-sortable="true" data-field="title">Article</th>
+      <th data-sortable="true" data-field="pagerank">Philosophy Link Score</th>
+      <th data-sortable="true" data-field="readability">Readability Level</th>
+      <th data-sortable="true" data-field="word_count">Word count</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for article <- @articles do %>
+    <tr>
+      <td><%= raw(format_title(article.title)) %></td>
+      <td><%= format_pagerank(article.pagerank) %></td>
+      <td><%= raw(format_readability(article.readability)) %></td>
+      <td><%= article.word_count %></td>
+
+      <td>
+        <%= link "Show", to: Routes.article_path(@conn, :show, article) %>
+        <%= link "Edit", to: Routes.article_path(@conn, :edit, article) %>
+        <%= link "Delete", to: Routes.article_path(@conn, :delete, article), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%# <span><%= link "New Article", to: Routes.article_path(@conn, :new) </span> %>
